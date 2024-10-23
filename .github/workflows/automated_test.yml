@@ -26,6 +26,13 @@ jobs:
           python -m venv venv
           source venv/bin/activate
           pip install -r requirements.txt
+
+      - name: Run Flask app
+        run: |
+          source venv/bin/activate
+          flask initdb
+          flask translate compile
+          nohup flask run > flask.log 2>&1 &
       
       - name: Checkout test respo
         run: git clone https://github.com/CamiloARC/auto-todoism.git
@@ -44,7 +51,7 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Run Playwright tests
-        run: npx playwright test todolist
+        run: npx playwright test todolist.spec.ts
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
