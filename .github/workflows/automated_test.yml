@@ -37,7 +37,7 @@ jobs:
       - name: Checkout test respo
         run: git clone https://github.com/CamiloARC/auto-todoism.git
 
-      - name: Setup Node
+      - name: Setup node
         uses: actions/setup-node@v4
         with:
           node-version: lts/*
