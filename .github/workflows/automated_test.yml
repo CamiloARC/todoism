@@ -50,7 +50,7 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
 
-      - name: Run Playwright tests
+      - name: Run Playwright Tests
         run: |
           cd auto-todoism
           npx playwright test todolist.spec.ts
